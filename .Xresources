@@ -1,0 +1,44 @@
+!!!
+!!! Configurations for Xft
+!!!
+
+Xft.dpi:                    96
+Xft.antialias:              true
+! Hintstyle 3 for flat-panel display.
+Xft.hintstyle:              hintslight
+Xft.antialias:              true
+! Uncomment/adjust for flat-panel display.
+Xft.rgba:                   rgb
+
+
+!!!
+!!! Configurations for URxvt
+!!!
+
+
+! URxvt as login shell
+URxvt*loginshell:          true
+
+
+! Term size
+URxvt*maximized:           true
+
+! Font
+URxvt*font : xft:Anonymous Pro:size=12,\
+             xft:WenQuanYi Zen Hei:antialias=true:scale=1.6,\
+             xft:WenQuanYi Micro Hei:antialias=true:scale=1.6
+
+! Saved lines
+URxvt*saveLines:           10000
+
+! Cursor setting
+URxvt*cursorBlink:         true
+
+! Background, a little bit dark
+URxvt.background:       #eeeeee
+
+# Input method
+URxvt.inputMethod:  ibus
+
+# No scroll bar
+URxvt.scrollBar: false
