@@ -15,13 +15,12 @@ Xft.rgba:                   rgb
 !!! Configurations for URxvt
 !!!
 
-
 ! URxvt as login shell
-URxvt*loginshell:          true
+URxvt.loginshell:          true
 
 
 ! Term size
-URxvt*maximized:           true
+URxvt.maximized:           true
 
 ! Font
 URxvt*font : xft:Anonymous Pro:size=12,\
@@ -29,16 +28,40 @@ URxvt*font : xft:Anonymous Pro:size=12,\
              xft:WenQuanYi Micro Hei:antialias=true:scale=1.6
 
 ! Saved lines
-URxvt*saveLines:           10000
+URxvt.saveLines:           3000
 
 ! Cursor setting
 URxvt*cursorBlink:         true
 
 ! Background, a little bit dark
-URxvt.background:       #eeeeee
+URxvt.background:       #f0f0f0
 
-# Input method
+! Input method
 URxvt.inputMethod:  ibus
 
-# No scroll bar
+! No scroll bar
 URxvt.scrollBar: false
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! disable the scrollback buffer for the secondary screen, like less
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! plugins
+URxvt.perl-ext-common: default,matcher,url-select
+
+! handle urls
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true

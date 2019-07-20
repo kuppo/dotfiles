@@ -105,7 +105,7 @@ bindkey "^Z" predict-off
 setopt histallowclobber
 
 ## try to avoid the 'zsh: no matches found...'
-setopt nonomatch
+#setopt nonomatch
 
 ## warning if file exists ('cat /dev/null > ~/.zshrc')
 setopt NO_clobber
