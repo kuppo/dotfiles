@@ -2,7 +2,7 @@
 !!! Configurations for Xft
 !!!
 
-Xft.dpi:                    96
+Xft.dpi:                    100
 Xft.antialias:              true
 ! Hintstyle 3 for flat-panel display.
 Xft.hintstyle:              hintslight
@@ -61,7 +61,7 @@ URxvt.perl-ext-common: default,matcher,url-select
 ! handle urls
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.matcher.rend.0: Uline Bold fg6
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
