@@ -97,7 +97,7 @@ local guieditor    = "atom"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "Earth", "Sun", "Mars" }
+awful.util.tagnames = { "Earth", "Sun", "Mars", "Jupiter", "Uranus" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
