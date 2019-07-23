@@ -344,3 +344,6 @@ export QT_IM_MODULE=ibus
 
 # alias for git dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# turn off flow control, those key bindings could be more useful
+stty -ixon
