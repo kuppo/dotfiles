@@ -103,7 +103,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "xos4 Terminus 10",
+        font = theme.font,
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -126,15 +126,15 @@ theme.weather = lain.widget.weather({
 })
 
 -- / fs
---[[ commented because it needs Gio/Glib >= 2.54
+-- commented because it needs Gio/Glib >= 3.54
 local fsicon = wibox.widget.imagebox(theme.widget_fs)
 theme.fs = lain.widget.fs({
     notification_preset = { font = "xos4 Terminus 10", fg = theme.fg_normal },
     settings  = function()
-        widget:set_markup(markup.fontfg(theme.font, "#80d9d8", string.format("%.1f", fs_now["/"].used) .. "% "))
+        widget:set_markup(markup.fontfg(theme.font, "#80d9d8", string.format("%.1f", fs_now["/"].used)))
     end
 })
---]]
+
 
 -- Mail IMAP check
 --[[ commented because it needs to be set before use
@@ -176,7 +176,7 @@ local temp = lain.widget.temp({
 })
 
 -- Battery
-local baticon = wibox.widget.imagebox(theme.widget_batt)
+--[[local baticon = wibox.widget.imagebox(theme.widget_batt)
 local bat = lain.widget.bat({
     settings = function()
         local perc = bat_now.perc ~= "N/A" and bat_now.perc .. "%" or bat_now.perc
@@ -188,6 +188,7 @@ local bat = lain.widget.bat({
         widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
     end
 })
+]]--
 
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
@@ -206,6 +207,7 @@ local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
 local netdowninfo = wibox.widget.textbox()
 local netupicon = wibox.widget.imagebox(theme.widget_netup)
 local netupinfo = lain.widget.net({
+    units = 1048576,
     settings = function()
         if iface ~= "network off" and
            string.match(theme.weather.widget.text, "N/A")
@@ -213,8 +215,8 @@ local netupinfo = lain.widget.net({
             theme.weather.update()
         end
 
-        widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent .. " "))
-        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received .. " "))
+        widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent))
+        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received))
     end
 })
 
@@ -316,14 +318,14 @@ function theme.at_screen_connect(s)
             memory.widget,
             cpuicon,
             cpu.widget,
-            --fsicon,
-            --theme.fs.widget,
+            fsicon,
+            theme.fs.widget,
             weathericon,
             theme.weather.widget,
             tempicon,
             temp.widget,
-            baticon,
-            bat.widget,
+            --baticon,
+            --bat.widget,
             clockicon,
             mytextclock,
         },
