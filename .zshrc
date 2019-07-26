@@ -347,3 +347,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # turn off flow control, those key bindings could be more useful
 stty -ixon
+
+# Fix ssh issue with urxvt
+export TERM=xterm-256color
