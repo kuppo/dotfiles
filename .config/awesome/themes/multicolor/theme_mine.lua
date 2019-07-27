@@ -102,8 +102,11 @@ mytextclock.font = theme.font
 -- Calendar
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
+    week_number = "left",
+    three = true,
+    followtag = true,
     notification_preset = {
-        font = theme.font,
+        font = "Anonymous pro 10",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -207,7 +210,7 @@ local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
 local netdowninfo = wibox.widget.textbox()
 local netupicon = wibox.widget.imagebox(theme.widget_netup)
 local netupinfo = lain.widget.net({
-    units = 1048576,
+    units = 1048576,    -- Unit is MiB
     settings = function()
         if iface ~= "network off" and
            string.match(theme.weather.widget.text, "N/A")
