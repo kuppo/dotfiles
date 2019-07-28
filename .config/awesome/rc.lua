@@ -97,7 +97,8 @@ local guieditor    = "atom"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "Earth", "Sun", "Mars", "Jupiter", "Uranus" }
+awful.util.tagnames = { "Earth", "Sun", "Mars", "Uranus", "Jupiter" }
+
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -680,8 +681,8 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = awful.util.tagnames[1] } },
+    { rule = { class = "firefox" },
+      properties = { screen = 1, tag = "Earth" } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
