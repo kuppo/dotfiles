@@ -113,3 +113,21 @@ set hlsearch
 if has('win32')
     noremap <C-V> <C-V>
 endif
+
+" Vim package manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Add plugins you wanted below. For MS Windows, this is probably better:
+"call plug#begin('~/vimfiles/plugged')
+
+"Plug 'embear/vim-localvimrc'
+"Plug 'kchmck/vim-coffee-script'
+" ... etc
+
+call plug#end()
