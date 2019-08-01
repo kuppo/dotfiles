@@ -129,5 +129,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'embear/vim-localvimrc'
 "Plug 'kchmck/vim-coffee-script'
 " ... etc
+Plug 'https://github.com/tpope/vim-surround'    " Parenthesis pairs.
 
 call plug#end()
