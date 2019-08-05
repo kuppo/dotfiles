@@ -81,6 +81,19 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+" Wildmenu
+if has("wildmenu")
+    set wildignore+=*.a,*.o
+    set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+    set wildignore+=.DS_Store,.git,.hg,.svn
+    set wildignore+=*~,*.swp,*.tmp
+    set wildmenu
+    set wildmode=longest,list
+endif
+
+" ignore case when file/direoctory completion
+set wildignorecase
+
 " Line number, hybrid line numbers.
 :set number relativenumber
 :augroup numbertoggle
@@ -90,7 +103,7 @@ endif
 :augroup END
 
 " Turn off mode line
-set modelines=0
+"set modelines=0
 
 " UTF-8 encoding
 set encoding=utf-8
@@ -102,12 +115,6 @@ set tabstop=4 shiftwidth=4 expandtab softtabstop=0 smarttab
 set go-=M
 set go-=T
 set go-=r
-
-" Search ignore case.
-set ignorecase
-
-" Highlight search candidates.
-set hlsearch
 
 " Avoid mswin.vim make C-v acts as paste
 if has('win32')
