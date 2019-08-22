@@ -102,7 +102,7 @@ bindkey "^Z" predict-off
 ## some popular options ##
 
 ## add `|' to output redirections in the history
-setopt histallowclobber
+#setopt histallowclobber
 
 ## try to avoid the 'zsh: no matches found...'
 #setopt nonomatch
