@@ -1,14 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2019 Jan 26
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
 if v:progname =~? "evim"
@@ -30,6 +19,7 @@ endif
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
+  set guifont=consolas:h13:qCLEARTYPE,WenQuanYi\ Micro\ Hei:h11
 endif
 
 " Put these in an autocmd group, so that we can delete them easily.
@@ -106,7 +96,7 @@ set wildignorecase
 "set modelines=0
 
 " UTF-8 encoding
-set encoding=utf-8
+set encoding=utf8
 
 " Tabs to 4 spaces
 set tabstop=4 shiftwidth=4 expandtab softtabstop=0 smarttab
