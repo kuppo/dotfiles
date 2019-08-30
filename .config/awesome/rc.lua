@@ -16,7 +16,7 @@ local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
---local menubar       = require("menubar")
+local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
@@ -93,7 +93,7 @@ local terminal     = "urxvtc"
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "gvim"
 local browser      = "firefox"
-local guieditor    = "atom"
+local guieditor    = "code"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
@@ -343,7 +343,7 @@ globalkeys = my_table.join(
         {description = "go back", group = "client"}),
 
     -- Show/Hide Wibox
-    awful.key({ modkey }, "b", function ()
+    awful.key({ modkey }, "v", function ()
             for s in screen do
                 s.mywibox.visible = not s.mywibox.visible
                 if s.mybottomwibox then
@@ -504,13 +504,17 @@ globalkeys = my_table.join(
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
               {description = "run gui editor", group = "launcher"}),
+    awful.key({ modkey }, "e", function () awful.spawn("thunar") end,
+              {description = "file manager", group = "launcher"}),
+    awful.key({ modkey }, "c", function () awful.spawn("gnome-calculator") end,
+              {description = "calculator", group = "launcher"}),
 
-    -- Default
-    --[[ Menubar
+
+    -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     
@@ -676,14 +680,24 @@ awful.rules.rules = {
      }
     },
 
-    -- Titlebars
+    -- No titlebars
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "firefox" },
-      properties = { screen = 1, tag = "Earth" } },
+      properties = { screen = 1, tag = "Earth", maximized = true } },
 
+   -- Set gnome-calculator float.
+    { rule = { name = "Calculator" },
+      properties = { floating = true } },
+
+   -- Set terminal opened on screen 1 and tag 2, and maximized
+    { rule = { class = "URxvt" },
+      properties = { screen = 1, tag = "Sun" } },
+
+
+    -- GIMP maximize.
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
 }
