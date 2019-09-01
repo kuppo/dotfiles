@@ -255,17 +255,29 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ altkey, modkey }, "d", function() 
+        os.execute("scrot -q 100 -e " ..
+                   "'mv $f ~/Pictures/Screenshots/screen_%s_$wx$h.png'") end,
+              {description = "Take a screenshot", group = "hotkeys"}),
+
+    awful.key({ altkey, modkey }, "a", function() 
+        os.execute("sleep 0.2; scrot -s -f -q 100 -e " ..
+                    "'mv $f ~/Pictures/Screenshots/area_%s_$wx$h.png'") end,
+              {description = "Take an area screenshot", group = "hotkeys"}),
+
+    awful.key({ altkey, modkey }, "w", function() 
+        os.execute("scrot -u -q 100 -e " ..
+                    "'mv $f ~/Pictures/Screenshots/window_%s_$wx$h.png'") end,
+              {description = "Take a window screenshot", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
 
-    -- Hotkeys
+    -- Hotkeys tips
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description = "show help", group="awesome"}),
+             
     -- Tag browsing
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
@@ -506,8 +518,6 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
-    awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
-              {description = "run gui editor", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn("thunar") end,
               {description = "file manager", group = "launcher"}),
     awful.key({ modkey }, "c", function () awful.spawn("gnome-calculator") end,
