@@ -255,17 +255,17 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
-    awful.key({ altkey, modkey }, "d", function() 
+    awful.key({ altkey, "Control" }, "s", function() 
         os.execute("scrot -q 100 -e " ..
                    "'mv $f ~/Pictures/Screenshots/screen_%s_$wx$h.png'") end,
               {description = "Take a screenshot", group = "hotkeys"}),
 
-    awful.key({ altkey, modkey }, "a", function() 
+    awful.key({ altkey, "Control" }, "a", function() 
         os.execute("sleep 0.2; scrot -s -f -q 100 -e " ..
                     "'mv $f ~/Pictures/Screenshots/area_%s_$wx$h.png'") end,
               {description = "Take an area screenshot", group = "hotkeys"}),
 
-    awful.key({ altkey, modkey }, "w", function() 
+    awful.key({ altkey, "Control" }, "w", function() 
         os.execute("scrot -u -q 100 -e " ..
                     "'mv $f ~/Pictures/Screenshots/window_%s_$wx$h.png'") end,
               {description = "Take a window screenshot", group = "hotkeys"}),
