@@ -180,7 +180,7 @@ local temp = lain.widget.temp({
 })
 
 -- Battery
---[[local baticon = wibox.widget.imagebox(theme.widget_batt)
+local baticon = wibox.widget.imagebox(theme.widget_batt)
 local bat = lain.widget.bat({
     settings = function()
         local perc = bat_now.perc ~= "N/A" and bat_now.perc .. "%" or bat_now.perc
@@ -192,17 +192,30 @@ local bat = lain.widget.bat({
         widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
     end
 })
-]]--
+
 
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
-theme.volume = lain.widget.alsa({
+theme.alsa= lain.widget.alsa({
     settings = function()
         if volume_now.status == "off" then
             volume_now.level = volume_now.level .. "M"
         end
 
         widget:set_markup(markup.fontfg(theme.font, "#7493d2", volume_now.level .. "% "))
+    end
+})
+
+
+-- PulseAudio volume (based on multicolor theme)
+local volicon = wibox.widget.imagebox(theme.widget_vol)
+theme.pulse = lain.widget.pulse({
+    settings = function()
+        vlevel = volume_now.left .. "-" .. volume_now.right .. "%"
+        if volume_now.muted == "yes" then
+            vlevel = vlevel .. "M"
+        end
+        widget:set_markup(lain.util.markup("#7493d2", vlevel))
     end
 })
 
@@ -317,7 +330,7 @@ function theme.at_screen_connect(s)
             netupicon,
             netupinfo.widget,
             volicon,
-            theme.volume.widget,
+            theme.pulse.widget,
             memicon,
             memory.widget,
             cpuicon,

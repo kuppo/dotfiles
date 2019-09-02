@@ -440,32 +440,32 @@ globalkeys = my_table.join(
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("pactl set-sink-volume %s +1%%", beautiful.pulse.device))
+            beautiful.pulse.update()
         end,
         {description = "volume up", group = "hotkeys"}),
     awful.key({ altkey }, "Down",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("pactl set-sink-volume %s -1%%", beautiful.pulse.device))
+            beautiful.pulse.update()
         end,
         {description = "volume down", group = "hotkeys"}),
     awful.key({ altkey }, "m",
         function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("pactl set-sink-mute %s toggle", beautiful.pulse.togglechannel or beautiful.pulse.device))
+            beautiful.pulse.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "m",
         function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("pactl set-sink-volume %s 100%%", beautiful.pulse.device))
+            beautiful.pulse.update()
         end,
         {description = "volume 100%", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "0",
         function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("pactl set-sink-volume %s 0%%", beautiful.pulse.device))
+            beautiful.pulse.update()
         end,
         {description = "volume 0%", group = "hotkeys"}),
 
