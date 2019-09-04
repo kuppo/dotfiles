@@ -440,13 +440,13 @@ globalkeys = my_table.join(
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
-            os.execute(string.format("pactl set-sink-volume %s +1%%", beautiful.pulse.device))
+            os.execute(string.format("pactl set-sink-volume %s +2%%", beautiful.pulse.device))
             beautiful.pulse.update()
         end,
         {description = "volume up", group = "hotkeys"}),
     awful.key({ altkey }, "Down",
         function ()
-            os.execute(string.format("pactl set-sink-volume %s -1%%", beautiful.pulse.device))
+            os.execute(string.format("pactl set-sink-volume %s -2%%", beautiful.pulse.device))
             beautiful.pulse.update()
         end,
         {description = "volume down", group = "hotkeys"}),

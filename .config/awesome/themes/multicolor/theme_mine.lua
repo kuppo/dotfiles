@@ -211,7 +211,7 @@ theme.alsa= lain.widget.alsa({
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.pulse = lain.widget.pulse({
     settings = function()
-        vlevel = volume_now.left .. "-" .. volume_now.right .. "%"
+        vlevel = volume_now.left.. "-" .. volume_now.right .. "%"
         if volume_now.muted == "yes" then
             vlevel = vlevel .. "M"
         end
