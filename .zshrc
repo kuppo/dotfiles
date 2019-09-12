@@ -108,7 +108,7 @@ bindkey "^Z" predict-off
 #setopt nonomatch
 
 ## warning if file exists ('cat /dev/null > ~/.zshrc')
-setopt NO_clobber
+#setopt NO_clobber
 
 ## don't warn me about bg processes when exiting
 setopt nocheckjobs
@@ -310,7 +310,7 @@ hex() {
 #alias -s pl='perl -S'
 
 ## ctrl-s will no longer freeze the terminal.
-#stty erase "^?"
+stty erase "^?"
 
 ## you want to automatically use a bigger font on big terminals?
 #if [[ "$TERM" == "xterm" ]] && [[ "$LINES" -ge 50 ]] && [[ "$COLUMNS" -ge 100 ]] && [[ -z "$SSH_CONNECTION" ]] ; then
