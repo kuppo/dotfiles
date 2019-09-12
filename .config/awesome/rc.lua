@@ -685,26 +685,25 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-                     size_hints_honor = false
-     }
+                     placement = awful.placement.no_overlap + 
+                                 awful.placement.no_offscreen,
+                     size_hints_honor = false,
+                     titlebars_enable = false
+      }
     },
 
-    -- No titlebars
-    { rule_any = { type = { "dialog", "normal" } },
-      properties = { titlebars_enabled = false } },
-
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "firefox" },
-      properties = { screen = 1, tag = "Earth", maximized = true } },
+    { rule = { name = "Mozilla Firefox" },
+      properties = { screen = 1, tag = "Earth", maximized = true,
+                     switchtotag = true} },
 
    -- Set gnome-calculator float.
-    { rule = { name = "Calculator" },
+    { rule = { name = "Calculator", class = "Dialog" },
       properties = { floating = true } },
 
    -- Set terminal opened on screen 1 and tag 2, and maximized
     { rule = { class = "URxvt" },
-      properties = { screen = 1, tag = "Sun" } },
+      properties = { screen = 1, tag = "Sun", switchtotag = true } },
 
 
     -- GIMP maximize.
