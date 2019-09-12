@@ -111,6 +111,10 @@ if has('win32')
     noremap <C-V> <C-V>
 endif
 
+" show column length
+set textwidth=78
+set colorcolumn=+1,+23  " set bars at 78 and 100
+
 "" set vim backup and swap file strategy.
 
 " Protect changes between writes. Default values of
@@ -152,5 +156,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'kchmck/vim-coffee-script'
 " ... etc
 Plug 'https://github.com/tpope/vim-surround'    " Parenthesis pairs.
+Plug 'MattesGroeger/vim-bookmarks'
 
 call plug#end()
