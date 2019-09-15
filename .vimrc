@@ -97,6 +97,9 @@ set wildignorecase
 
 " UTF-8 encoding
 set encoding=utf8
+" Fix display issue when language set to other languages other than English
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 
 " Tabs to 4 spaces
 set tabstop=4 shiftwidth=4 expandtab softtabstop=0 smarttab
