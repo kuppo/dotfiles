@@ -350,3 +350,9 @@ stty -ixon
 
 # Fix ssh issue with urxvt
 export TERM=xterm-256color
+
+# I'm using fzf - a fuzzy finder, its color schema is to light, which is not
+# suitable for my light terminal, let me change it to other color.
+export FZF_DEFAULT_OPTS='
+            --color=bw
+            '
