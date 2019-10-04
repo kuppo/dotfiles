@@ -158,10 +158,12 @@ call plug#begin('~/.vim/plugged')
 "Plug 'embear/vim-localvimrc'
 "Plug 'kchmck/vim-coffee-script'
 " ... etc
-Plug 'https://github.com/tpope/vim-surround'    " Parenthesis pairs.
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'scy/vim-mkdir-on-write'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
