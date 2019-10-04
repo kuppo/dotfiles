@@ -93,7 +93,7 @@ set wildignorecase
 :augroup END
 
 " Turn off mode line
-"set modelines=0
+set modelines=1
 
 " UTF-8 encoding
 set encoding=utf8
