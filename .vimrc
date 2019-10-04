@@ -160,19 +160,18 @@ call plug#begin('~/.vim/plugged')
 " ... etc
 Plug 'https://github.com/tpope/vim-surround'    " Parenthesis pairs.
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
-"" Settings for Latex.
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
+" Settings for vimtex
 let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'"
+
+"" Spell checking
+setlocal spell
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
